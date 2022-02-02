@@ -51,14 +51,28 @@ ul{
     padding: 0;   
     margin: 0;
 }
+figure{
+    margin: 0;
+}
 .completed{
+    position: relative;
     text-decoration: line-through;
     color: $dark-grayish-blue;  
-    background-image: url('/styles/images/icon-check.svg');
+    // background-image: url('/styles/images/icon-check.svg');
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 20px;
     background-size: 7px;
+    .todo-list__item-checkbox{
+        background: rgb(2,0,36);
+        background: linear-gradient(144deg, rgb(114, 212, 215) 0%, rgb(170, 94, 156) 100%);
+    }
+    .check-img{
+        position: absolute;
+        top: 17px;
+        left: 18px;
+        width: 1.6%;
+    }
     
 }
 .todo-menu{
@@ -81,7 +95,7 @@ ul{
         }
     }
     &__clear{
-        :hover{
+        &:hover{
             color: $bright-blue;
             cursor: pointer;
         }
@@ -96,15 +110,24 @@ ul{
         display: flex;
         align-items: center;
         border-bottom: 1px solid $very-dark-grayish-blue-2;
-       &-text{
-            // padding: 14px 0px 14px 0px;            
-        }
+        /* &-text{
+            padding: 14px 0px 14px 0px;            
+        } */
         &-checkbox{
             margin: 15px;
             border-radius: 50%;
             height: 15px;
             width: 15px;
             border: 1px solid $very-dark-grayish-blue-2;
+            &:hover{    
+                border-color: $bright-blue;
+            }
+        }
+        &:hover{
+            cursor: pointer;
+            .cross{
+                visibility: visible;
+            }
         }         
     }
     &-container{
@@ -112,4 +135,11 @@ ul{
             box-shadow: 5px 5px 10px #151516d9;
             border-radius: 4px;
     }
+}
+.cross{
+    margin-left: auto;
+    padding-right: 15px;
+}
+.AddTodo{
+    caret-color: $bright-blue;
 }

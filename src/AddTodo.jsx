@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AddTodo = () => {
-  return <input type="text" placeholder="Create a new todo..." />;
+  return <input className='AddTodo' type="text" placeholder="Create a new todo..." />;
 };
 
 export default AddTodo;
