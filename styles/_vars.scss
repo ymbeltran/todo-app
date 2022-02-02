@@ -1,3 +1,4 @@
+@import 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap';
 $bright-blue: hsl(220, 98%, 61%);
 $very-light-gray: hsl(0, 0%, 98%);
 $very-light-grayish-blue: hsl(236, 33%, 92%);
@@ -13,10 +14,10 @@ $dark-grayish-blue-dt:hsl(234, 11%, 52%);
 $very-dark-grayish-blue-2:hsl(233, 14%, 35%);
 $very-dark-grayish-blue-3:hsl(237, 14%, 26%);
 
-@font-face {
+/* @font-face {
   font-family: "Josefin Sans";
   src: url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
-}
+} */
 
 $main-font: 'Josefin Sans', sans-serif;
 $font-size: 18px;
@@ -36,3 +37,4 @@ $font-size: 18px;
 /* - Check Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
 - Mobile: 375px
 - Desktop: 1440px */
+

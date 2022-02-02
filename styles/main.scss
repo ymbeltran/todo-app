@@ -1,0 +1,115 @@
+@import 'vars';
+
+body{
+    margin: 0;
+    background-color: $very-dark-blue;
+    font-family: $main-font;
+    font-size: $font-size;
+    font-weight:400;
+    color: $light-grayish-blue;
+    &.light{
+        background-color: $very-light-grayish-blue;
+        color: $very-dark-grayish-blue-3;
+        
+    }
+}
+
+.todo-head {
+    &__bg{
+        width: 100%;
+    }
+}
+.todo-container{
+    width: 500px;
+    position: absolute;
+    top: 50px;
+    &__title{
+        font-weight:700;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+    }
+    
+    /* &__toggleTheme{
+        position: absolute;
+        top: 15%;
+        right: 30%;
+    }
+    h1{
+        position: absolute;
+        top: 10%;
+        left: 20%;
+    } */
+}
+#app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ul{
+    list-style: none; 
+    padding: 0;   
+    margin: 0;
+}
+.completed{
+    text-decoration: line-through;
+    color: $dark-grayish-blue;  
+    background-image: url('/styles/images/icon-check.svg');
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 20px;
+    background-size: 7px;
+    
+}
+.todo-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $dark-grayish-blue;
+    font-size: 12px;
+    &__options{
+        display: flex;
+        li{
+            padding-right: 10px;
+        }
+        :hover{
+            color: $bright-blue;
+            cursor: pointer;
+        }
+        &--selected{
+            color: $bright-blue;
+        }
+    }
+    &__clear{
+        :hover{
+            color: $bright-blue;
+            cursor: pointer;
+        }
+    }
+    p{
+        padding: 0 15px;
+    }
+}
+.todo-list{
+    font-size: 14px;
+    &__item{
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $very-dark-grayish-blue-2;
+       &-text{
+            // padding: 14px 0px 14px 0px;            
+        }
+        &-checkbox{
+            margin: 15px;
+            border-radius: 50%;
+            height: 15px;
+            width: 15px;
+            border: 1px solid $very-dark-grayish-blue-2;
+        }         
+    }
+    &-container{
+            background-color: $very-dark-desaturated-blue;
+            box-shadow: 5px 5px 10px #151516d9;
+            border-radius: 4px;
+    }
+}
