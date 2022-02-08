@@ -1,12 +1,16 @@
-import React  from 'react';
-import headImg from "/styles/images/bg-desktop-dark.jpg";
+import React, {useContext}  from 'react';
+import AppContext from './AppContext';
+// import useThemeMode from './useThemeMode';
+import headImgdk from "/styles/images/bg-desktop-dark.jpg";
+import headImglg from "/styles/images/bg-desktop-light.jpg";
 
 const HeaderTodo = () => {
+  const {themeMode} = useContext(AppContext);
 
   return (
     <header>
       <div className='todo-head'>
-        <img src={headImg} className='todo-head__bg'/>
+        <img src={themeMode? headImgdk:headImglg} className='todo-head__bg'/>
       </div>      
     </header>
   );

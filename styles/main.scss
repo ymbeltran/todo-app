@@ -9,11 +9,13 @@ body{
     color: $light-grayish-blue;
     &.light{
         background-color: $very-light-grayish-blue;
-        color: $very-dark-grayish-blue-3;
+        color: $very-dark-grayish-blue-2;
         
     }
 }
-
+h1{
+    color: $very-light-gray;
+}
 .todo-head {
     &__bg{
         width: 100%;
@@ -87,7 +89,7 @@ figure{
             padding-right: 10px;
         }
         :hover{
-            color: $bright-blue;
+            color: $very-light-gray;
             cursor: pointer;
         }
         &--selected{
@@ -96,7 +98,7 @@ figure{
     }
     &__clear{
         &:hover{
-            color: $bright-blue;
+            color: $very-light-gray;
             cursor: pointer;
         }
     }
@@ -134,6 +136,17 @@ figure{
             background-color: $very-dark-desaturated-blue;
             box-shadow: 5px 5px 10px #151516d9;
             border-radius: 4px;
+            &-light{
+                background-color: $very-light-gray;
+                box-shadow: 5px 5px 10px $light-grayish-blue;
+                border-radius: 4px;
+                .todo-list .todo-list__item {
+                    border-bottom: 1px solid $very-light-grayish-blue;
+                }
+                .todo-list__item-checkbox{
+                    border: 1px solid $very-light-grayish-blue;
+                }
+            }
     }
 }
 .cross{
@@ -141,5 +154,39 @@ figure{
     padding-right: 15px;
 }
 .AddTodo{
-    caret-color: $bright-blue;
+    input{
+        caret-color: $bright-blue;
+        box-sizing: border-box;
+        padding: 15px 15px 15px 45px;
+        width: 100%;
+        margin-bottom: 15px;
+        background-color: $very-dark-desaturated-blue;
+        border: none;
+        border-radius: 4px;
+        &:focus{
+            outline: none;
+        }
+    }
+    &-checkbox{
+        position: absolute;
+    }
+}
+.light{
+    .todo-menu__options {
+        & :hover{
+            color: $very-dark-blue;            
+        }/* 
+        &--selected{
+            color: $bright-blue;
+        }      */  
+    }
+    .todo-menu__clear:hover{
+        color: $very-dark-blue;
+    }
+    input{
+        background-color: $very-light-gray;
+    }
+    .AddTodo-checkbox{
+        border-color: $very-light-grayish-blue;
+    }
 }

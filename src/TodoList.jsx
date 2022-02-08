@@ -1,70 +1,33 @@
-import React from 'react';
-import check from "/styles/images/icon-check.svg";
-import cross from "/styles/images/icon-cross.svg";
+import React,{useContext} from 'react';
+import AppContext from './AppContext';
+import TodoItem from './TodoItem';
+/* import check from "/styles/images/icon-check.svg";
+import cross from "/styles/images/icon-cross.svg"; */
+
+const todos = [
+  {id:'todo-0', text: "Complete online JavaScript course", completed: true},
+  {id:'todo-1', text: "Jog around the park 3x", completed: false},
+  {id:'todo-2', text: "10 minutes meditation", completed: false},
+  {id:'todo-3', text: "Read for 1 hour", completed: false},
+  {id:'todo-4', text: "Pick up groceries", completed: false},
+  {id:'todo-5', text: "Complete Todo App on Frontend Mentor", completed: false}
+]
 
 const TodoList = () => {
+  const {list} = useContext(AppContext);
+  let toShow=todos;
+  console.log('Mostrar: '+{list});
+  if (list=='active') {
+    toShow=todos.filter(crt =>!crt.completed)
+  }else if (list=='completed') {
+    toShow=todos.filter(crt =>crt.completed)
+  }
+  
   return (
       <ul className='todo-list'>
-        <div className='todo-list__item completed'>
-          <div className='todo-list__item-checkbox'></div>
-          <figure className='check-img'>
-            <img src={check} alt="" />
-          </figure>
-          <li className='todo-list__item-text '>Complete online JavaScript course</li>
-          <figure className='cross'>
-            <img src={cross} alt=""  />
-          </figure>
-        </div>
-        <div className='todo-list__item'>
-          <div className='todo-list__item-checkbox'></div>
-          <figure className='check-img'>
-            <img src={check} alt="" hidden />
-          </figure>
-          <li className='todo-list__item-text'>Jog around the park 3x</li>
-          <figure className='cross'>
-            <img src={cross} alt="" hidden />
-          </figure>
-        </div>
-        <div className='todo-list__item'>
-          <div className='todo-list__item-checkbox'></div>
-          <figure className='check-img'>
-            <img src={check} alt="" hidden />
-          </figure>
-          <li className='todo-list__item-text'>10 minutes meditation</li>
-          <figure className='cross'>
-            <img src={cross} alt="" hidden />
-          </figure>
-        </div>
-        <div className='todo-list__item'>
-          <div className='todo-list__item-checkbox'></div>
-          <figure className='check-img'>
-            <img src={check} alt="" hidden />
-          </figure>
-          <li className='todo-list__item-text'>Read for 1 hour</li>
-          <figure className='cross'>
-            <img src={cross} alt="" hidden />
-          </figure>
-        </div>
-        <div className='todo-list__item'>
-          <div className='todo-list__item-checkbox'></div>
-          <figure className='check-img'>
-            <img src={check} alt="" hidden />
-          </figure>
-          <li className='todo-list__item-text'>Pick up groceries</li>
-          <figure className='cross'>
-            <img src={cross} alt="" hidden />
-          </figure>
-        </div>
-        <div className='todo-list__item'>
-          <div className='todo-list__item-checkbox'></div>
-          <figure className='check-img'>
-            <img src={check} alt="" hidden />
-          </figure>
-          <li className='todo-list__item-text'>Complete Todo App on Frontend Mentor</li>
-          <figure className='cross'>
-            <img src={cross} alt="" hidden />
-          </figure>
-        </div>
+        {toShow.map(todo => (
+                    <TodoItem todo={todo} key={todo.id} />
+                ))}
       </ul>
   );
 };
