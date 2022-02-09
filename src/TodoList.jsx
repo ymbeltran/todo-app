@@ -1,32 +1,28 @@
-import React,{useContext} from 'react';
+import React,{useContext, useState} from 'react';
 import AppContext from './AppContext';
 import TodoItem from './TodoItem';
-/* import check from "/styles/images/icon-check.svg";
-import cross from "/styles/images/icon-cross.svg"; */
+import useHandleTodo from './useHandleTodo';
 
-const todos = [
-  {id:'todo-0', text: "Complete online JavaScript course", completed: true},
-  {id:'todo-1', text: "Jog around the park 3x", completed: false},
-  {id:'todo-2', text: "10 minutes meditation", completed: false},
-  {id:'todo-3', text: "Read for 1 hour", completed: false},
-  {id:'todo-4', text: "Pick up groceries", completed: false},
-  {id:'todo-5', text: "Complete Todo App on Frontend Mentor", completed: false}
-]
+const TodoList = ({todoL}) => {
 
-const TodoList = () => {
-  const {list} = useContext(AppContext);
-  let toShow=todos;
-  console.log('Mostrar: '+{list});
-  if (list=='active') {
-    toShow=todos.filter(crt =>!crt.completed)
-  }else if (list=='completed') {
-    toShow=todos.filter(crt =>crt.completed)
+  const showL = useContext(AppContext);
+  
+  let toShow=todoL.todoListing.todos;
+  
+  if (showL.showList=='active') {
+    toShow=toShow.filter(crt =>!crt.completed)
+  }
+  else if (showL.showList=='completed') {
+    toShow=toShow.filter(crt =>crt.completed)
   }
   
+  console.log("Pinta la lista");
+
   return (
       <ul className='todo-list'>
+        
         {toShow.map(todo => (
-                    <TodoItem todo={todo} key={todo.id} />
+                    <TodoItem idTodo={toShow.indexOf(todo)} todo={todo} key={todo.id} todoManager={todoL} />
                 ))}
       </ul>
   );

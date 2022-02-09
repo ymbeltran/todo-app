@@ -11,7 +11,6 @@ import AppContext from './AppContext';
 
 const App = () => {
   const theme = useThemeMode();
-  
   const handleTMode = () => {
     theme.handleThemeMode();
 }
@@ -25,7 +24,7 @@ const App = () => {
           <img src={theme.themeMode? sunLight:moon} onClick={() =>handleTMode()} className='todo-container__toggleTheme' />
           {/* <useThemeMode/> */}
         </div>
-        <AddTodo/>
+        
         <TodoListContainer/>
     </section>
     </AppContext.Provider>
