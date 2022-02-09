@@ -11,15 +11,21 @@ const TodoMenu = (props) => {
     showl.showTodos(option);
   }
   
+  const handleClearOpt = () => {
+    todosL.clearCompleted();
+  } 
+
   return (
       <div className={themeMode?'todo-menu':'todo-menu light'}>
         <ToDoCounter todoL={todosL}/>
-        <ul className='todo-menu__options'>
+        <div className='todo-menu__options'>
+        <ul >
             <li className='todo-menu__options--selected' onClick={()=>handleMenuOptions('all')}>All</li>
             <li onClick={()=>handleMenuOptions('active')}>Active </li>
             <li onClick={()=>handleMenuOptions('completed')}>Completed</li>
         </ul>
-        <p className='todo-menu__clear'>Clear completed</p>
+        </div>
+        <p className='todo-menu__clear' onClick={()=>handleClearOpt()} >Clear completed</p>
       </div>
   );
 };

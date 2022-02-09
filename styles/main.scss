@@ -18,11 +18,12 @@ h1{
 }
 .todo-head {
     &__bg{
+        display: none;
         width: 100%;
     }
 }
 .todo-container{
-    width: 500px;
+    width: 80%;
     position: absolute;
     top: 50px;
     &__title{
@@ -84,7 +85,13 @@ figure{
     color: $dark-grayish-blue;
     font-size: 12px;
     &__options{
-        display: flex;
+        position: absolute;
+        bottom: -55px;
+        padding: 4% 27%;
+        background-color: #25273c;
+        ul{
+            display: flex;
+        }
         li{
             padding-right: 10px;
         }
@@ -194,5 +201,32 @@ figure{
         &-checkbox{
             border-color: $very-light-grayish-blue;
         }
+    }
+}
+@media only screen and (min-width: 376px) {
+    .todo-container {
+        width: 80%;
+    }
+    .todo-menu__options {
+        position: relative;
+        padding: 0;
+        bottom: auto;
+    }
+    .todo-head__bg{
+        display: block !important;
+        &--mobile{
+            display: none;
+        }
+    }
+
+}
+/* @media only screen and (min-width: 600px) {
+    .todo-container {
+        width: 80%;
+    }
+} */
+@media only screen and (min-width: 768px) {
+    .todo-container {
+        width: 500px;
     }
 }

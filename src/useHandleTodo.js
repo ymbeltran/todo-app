@@ -14,7 +14,6 @@ const todosInfo = {
 const useHandleTodo = () => {
 
     const [todoListing, setTodoListing] = useState(todosInfo);
-    const [todoCount, setTodoCount] = useState('5');
     const [totalTodos, setTotalTodos] = useState(6);
 
     const addTodo = (toAdd) =>{
@@ -28,11 +27,12 @@ const useHandleTodo = () => {
         setTotalTodos(totalTodos+1);
     }
     const removeTodo = (toRemove) =>{
+        console.log('toRemove: ',toRemove);
         setTodoListing({
             ...todoListing,
             todos: todoListing.todos.filter(crt => crt.id !== toRemove.id)
           });
-          console.log(todoListing);
+          console.log('After Removed: ',todoListing);
           countTodoActive();
     }
 
@@ -51,21 +51,20 @@ const useHandleTodo = () => {
         countTodoActive();
     }
 
-    const sayHi = () => {return todoListing}
-
-    /*setTimeout(() => {
-        console.log("agrega un nou")
-        addTodo("Nuevo");
-    },3000)*/
-
+    const clearCompleted = () =>{
+        let toClear=todoListing.todos.filter(crt =>!crt.completed);
+        
+        setTodoListing({
+            todos: toClear
+        });
+    }
   return {
       todoListing,
-      todoCount,
         addTodo,
         removeTodo,
         countTodoActive,
         completeTodo,
-        sayHi
+        clearCompleted
   }
 };
 

@@ -8,6 +8,7 @@ const AddTodo = (props) => {
  const addingTodo = (event) => {
     if (event.charCode === 13) {
       todoManager.addTodo(event.target.value);
+      event.target.value='';
     }
   }
   return (
