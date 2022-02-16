@@ -1,45 +1,44 @@
-import React, {useContext} from 'react';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AddTodo from './AddTodo';
+import React from 'react';
 import HeaderTodo from './HeaderTodo';
-import useThemeMode from './useThemeMode';
 import TodoListContainer from './TodoListContainer';
-import '/styles/main.scss';
 import sunLight from "/styles/images/icon-sun.svg";
 import moon from "/styles/images/icon-moon.svg";
-import AppContext from './AppContext';
+import {AppContext} from './AppContext';
+import {TodoProvider} from './AppContext';
+import '/styles/main.scss';
 
 const App = () => {
-  const theme = useThemeMode();
-  const handleTMode = () => {
-    theme.handleThemeMode();
-}
-  return (    
-    <>
-    <AppContext.Provider value={theme}>
-    <HeaderTodo/>
-    <section className='todo-container'>
-        <div className='todo-container__title'>
-          <h1>T  O  D  O</h1>
-          <img src={theme.themeMode? sunLight:moon} onClick={() =>handleTMode()} className='todo-container__toggleTheme' />
-          {/* <useThemeMode/> */}
-        </div>
-        
-        <TodoListContainer/>
-    </section>
-    </AppContext.Provider>
-    </>
+
+  return (
+    <TodoProvider>
+      <HeaderTodo/>
+      <AppContext.Consumer>
+        {({
+          themeMode,
+          handleThemeMode,
+          error,
+          loading,
+          todoListing
+        }) => {
+          return(
+        <section className='todo-container'>
+            <div className='todo-container__title'>
+              <h1>T  O  D  O</h1>
+              <img 
+                src={themeMode? sunLight:moon} 
+                onClick={() =>handleThemeMode()} 
+                className='todo-container__toggleTheme' 
+              />
+            </div>
+            <TodoListContainer/>
+            {error && <p className='todo-container__message'>Oops! We couldn't load your TODOs</p>}
+            {loading && <p className='todo-container__message'>Loading, please be patient...</p>}
+            {(!loading && !todoListing.length) && <p className='todo-container__message'>¡Let's create your first TODO!</p>}
+        </section>
+        )}}
+      </AppContext.Consumer>
+    </TodoProvider>
   );
-  /* 
-  theme mode
-  add todo
-  todo list
-  todo item
-  Menu
-    trash completed
-    todo count
-    show options
-  */
 };
 
 export default App;

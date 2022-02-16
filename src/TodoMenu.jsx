@@ -1,32 +1,29 @@
-import React, {useContext, useState} from 'react';
-import AppContext from './AppContext';
+import React from 'react';
+import {AppContext} from './AppContext';
 import ToDoCounter from './ToDoCounter';
 
-const TodoMenu = (props) => {
-  const {todosL} = props;
-  const {themeMode} = useContext(AppContext);
-  const showl = useContext(AppContext);
-  
-  const handleMenuOptions = (option) => {
-    showl.showTodos(option);
-  }
-  
-  const handleClearOpt = () => {
-    todosL.clearCompleted();
-  } 
+const TodoMenu = () => {
 
   return (
+    <AppContext.Consumer>
+      {({
+        clearCompleted,
+        showTodos,
+        themeMode,
+      }) => (
       <div className={themeMode?'todo-menu':'todo-menu light'}>
-        <ToDoCounter todoL={todosL}/>
+         <ToDoCounter />
         <div className='todo-menu__options'>
         <ul >
-            <li className='todo-menu__options--selected' onClick={()=>handleMenuOptions('all')}>All</li>
-            <li onClick={()=>handleMenuOptions('active')}>Active </li>
-            <li onClick={()=>handleMenuOptions('completed')}>Completed</li>
+            <li className='todo-menu__options--selected' onClick={()=>showTodos('all')}>All</li>
+            <li onClick={()=>showTodos('active')}>Active </li>
+            <li onClick={()=>showTodos('completed')}>Completed</li>
         </ul>
         </div>
-        <p className='todo-menu__clear' onClick={()=>handleClearOpt()} >Clear completed</p>
+        <p className='todo-menu__clear' onClick={()=>clearCompleted()} >Clear completed</p>
       </div>
+      )}
+    </AppContext.Consumer>
   );
 };
 

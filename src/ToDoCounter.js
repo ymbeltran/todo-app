@@ -1,9 +1,15 @@
 import React from 'react';
-import useHandleTodo from './useHandleTodo';
+import { AppContext } from './AppContext';
 
-const ToDoCounter = ({todoL}) => {
+const ToDoCounter = () => {
   return (
-  <p>{todoL.countTodoActive()} items left</p>
+    <AppContext.Consumer>
+      {({
+        countTodos
+      }) => (
+      <p>{countTodos} items left</p>
+      )}
+    </AppContext.Consumer>
   );
 };
 

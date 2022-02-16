@@ -1,28 +1,27 @@
 import React,{useContext, useState} from 'react';
-import AppContext from './AppContext';
+import {AppContext} from './AppContext';
 import TodoItem from './TodoItem';
-import useHandleTodo from './useHandleTodo';
 
-const TodoList = ({todoL}) => {
+const TodoList = () => {
 
-  const showL = useContext(AppContext);
+  const {showList,todoListing} = useContext(AppContext);
   
-  let toShow=todoL.todoListing.todos;
+  let toShow=todoListing;
   
-  if (showL.showList=='active') {
-    toShow=toShow.filter(crt =>!crt.completed)
+  if (showList=='active') {
+    toShow=todoListing.filter(crt =>!crt.completed)
   }
-  else if (showL.showList=='completed') {
-    toShow=toShow.filter(crt =>crt.completed)
+  else if (showList=='completed') {
+    toShow=todoListing.filter(crt =>crt.completed)
   }
   
-  console.log("Pinta la lista");
+  // console.log("Show the list: ", toShow);
 
   return (
       <ul className='todo-list'>
         
         {toShow.map(todo => (
-                    <TodoItem idTodo={toShow.indexOf(todo)} todo={todo} key={todo.id} todoManager={todoL} />
+                    <TodoItem idTodo={toShow.indexOf(todo)} todo={todo} key={todo.id} />
                 ))}
       </ul>
   );

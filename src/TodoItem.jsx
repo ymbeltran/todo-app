@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
+import { AppContext } from './AppContext';
 import check from "/styles/images/icon-check.svg";
 import cross from "/styles/images/icon-cross.svg";
 
-const TodoItem = (props) => {
-
-  const {todo,todoManager} = props;
+const TodoItem = ({todo}) => {
   
   const [showCross, setShowCross] = useState(false);
       
@@ -14,23 +13,37 @@ const TodoItem = (props) => {
   const handleMouseLeave = e => {
     setShowCross(false);
   }
-  const toComplete = () =>{
-    todoManager.completeTodo(todo);
-  }
-  const deleteTodo= () =>{
-    todoManager.removeTodo(todo);
-  }
+  
   return (
-      <div key={todo.id} id={todo.id} className={todo.completed?'todo-list__item completed':'todo-list__item'}
+    <AppContext.Consumer>
+        {({
+          completeTodo,
+          removeTodo,
+        }) => (
+      <div 
+          key={todo.id} 
+          id={todo.id} 
+          className={todo.completed?'todo-list__item completed':'todo-list__item'}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
-          <div className='todo-list__item-checkbox' onClick={()=>toComplete()}></div>
-          {todo.completed && <figure className='check-img' onClick={()=>toComplete()}><img src={check} alt="" /></figure>}
+
+          <div 
+          className='todo-list__item-checkbox' 
+          onClick={()=>completeTodo(todo)}></div>
+          
+          {
+            todo.completed && <figure 
+            className='check-img' 
+            onClick={()=>completeTodo(todo)}>
+            <img src={check} alt="" /></figure>
+          }
           <li className='todo-list__item-text '>{todo.text}</li>
-          <figure className='cross' onClick={()=>deleteTodo(todo.id)}>
+          <figure className='cross' onClick={()=>removeTodo(todo.id)}>
               {showCross && <img src={cross} alt="" /> }
           </figure>
       </div>
+      )}
+      </AppContext.Consumer>
   );
 };
 

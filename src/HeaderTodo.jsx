@@ -1,6 +1,5 @@
 import React, {useContext}  from 'react';
-import AppContext from './AppContext';
-// import useThemeMode from './useThemeMode';
+import {AppContext} from './AppContext';
 import headImgdk from "/styles/images/bg-desktop-dark.jpg";
 import headImglg from "/styles/images/bg-desktop-light.jpg";
 import headImgdkmb from "/styles/images/bg-mobile-dark.jpg";
