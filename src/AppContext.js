@@ -20,17 +20,15 @@ const TodoProvider = (props) => {
         error,
       } = useLocalStorage('appTodo-v1', []);
  
-    const [totalTodos, setTotalTodos] = useState(todoListing.filter(crt =>!crt.completed).length);
     const [countTodos, setCountTodos] = useState(todoListing.filter(crt =>!crt.completed).length);
     const [showList, setShowList] = useState('all');
     const [themeMode, setThemeMode] = useState(true);
 
     const addTodo = (toAdd) =>{
-        let newTodo = {id:'todo-'+totalTodos, text:toAdd, completed:false}
+        let newTodo = {id:'todo-'+todoListing.length, text:toAdd, completed:false}
         const newList = [...todoListing,newTodo];
-
+        
         saveTodos(newList);
-        setTotalTodos(totalTodos+1);
     }
     const removeTodo = (toRemoveId) =>{
         const id = todoListing.findIndex(crt => crt.id === toRemoveId)

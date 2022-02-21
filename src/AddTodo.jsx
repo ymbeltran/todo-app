@@ -11,7 +11,9 @@ const AddTodo = () => {
     }) => {
       const addingTodo = (event) => {
         if (event.charCode === 13) {
-          addTodo(event.target.value);
+          if (event.target.value!='') {
+            addTodo(event.target.value);
+          }
           event.target.value='';
         }
       }

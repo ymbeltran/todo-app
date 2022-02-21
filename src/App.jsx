@@ -33,8 +33,8 @@ const App = () => {
             <TodoListContainer/>
             {error && <p className='todo-container__message'>Oops! We couldn't load your TODOs</p>}
             {loading && <p className='todo-container__message'>Loading, please be patient...</p>}
-            {(!loading && !todoListing.length) && <p className='todo-container__message'>¡Let's create your first TODO!</p>}
-            {(!loading && todoListing.length) && <p className='todo-container__message'>Drag and drop to reorder list</p>}
+            {(!loading && todoListing.length===0) && <p className='todo-container__message'>¡Let's create your first TODO!</p>}
+            {(!loading && todoListing.lenght > 0) && <p className='todo-container__message'>Drag and drop to reorder list</p>}
         </section>
         )}}
       </AppContext.Consumer>

@@ -39,7 +39,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Todo app challenge](https://github.com/ymbeltran/todo-app.git)
-- Live Site URL: 
+- Live Site URL: [GitHub Pages](https://ymbeltran.github.io/todo-app/)
 
 ## My process
 
