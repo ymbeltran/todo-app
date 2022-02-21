@@ -3,8 +3,8 @@ import { AppContext } from './AppContext';
 import check from "/styles/images/icon-check.svg";
 import cross from "/styles/images/icon-cross.svg";
 
-const TodoItem = ({todo}) => {
-  
+const TodoItem = ({todo, provided, innerRef}) => {
+
   const [showCross, setShowCross] = useState(false);
       
   const handleMouseEnter = e => {
@@ -13,16 +13,20 @@ const TodoItem = ({todo}) => {
   const handleMouseLeave = e => {
     setShowCross(false);
   }
-  
+
   return (
     <AppContext.Consumer>
         {({
           completeTodo,
           removeTodo,
         }) => (
+        
       <div 
           key={todo.id} 
           id={todo.id} 
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={innerRef}
           className={todo.completed?'todo-list__item completed':'todo-list__item'}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
@@ -37,7 +41,7 @@ const TodoItem = ({todo}) => {
             onClick={()=>completeTodo(todo)}>
             <img src={check} alt="" /></figure>
           }
-          <li className='todo-list__item-text '>{todo.text}</li>
+          <p className='todo-list__item-text ' >{todo.text} </p>
           <figure className='cross' onClick={()=>removeTodo(todo.id)}>
               {showCross && <img src={cross} alt="" /> }
           </figure>
