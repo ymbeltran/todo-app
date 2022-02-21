@@ -1,0 +1,22 @@
+@media only screen and (min-width: 376px) {
+    .todo-container {
+        width: 80%;
+    }
+    .todo-menu__options {
+        position: relative;
+        padding: 0;
+        bottom: auto;
+    }
+    .todo-head__bg{
+        display: block !important;
+        &--mobile{
+            display: none;
+        }
+    }
+
+}
+@media only screen and (min-width: 768px) {
+    .todo-container {
+        width: 500px;
+    }
+}

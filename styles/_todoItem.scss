@@ -1,0 +1,24 @@
+.completed{
+    position: relative;
+    text-decoration: line-through;
+    color: $dark-grayish-blue;  
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 20px;
+    background-size: 7px;
+    .todo-list__item-checkbox{
+        background: rgb(2,0,36);
+        background: linear-gradient(144deg, rgb(114, 212, 215) 0%, rgb(170, 94, 156) 100%);
+    }
+    .check-img{
+        position: absolute;
+        top: 17px;
+        left: 18px;
+        width: 1.6%;
+    }
+    
+}
+.cross{
+    margin-left: auto;
+    padding-right: 15px;
+}

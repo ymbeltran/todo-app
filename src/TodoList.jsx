@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react';
+import React,{useContext} from 'react';
 import {AppContext} from './AppContext';
 import TodoItem from './TodoItem';
 import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd"
@@ -29,7 +29,7 @@ const TodoList = () => {
     <DragDropContext 
     
     onDragEnd={(result)=> {
-      console.log('- P -', result);
+      
       const {source, destination} = result;
       if (!destination) {
         return;

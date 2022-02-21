@@ -1,0 +1,17 @@
+.todo-container{
+    width: 80%;
+    position: absolute;
+    top: 50px;
+    &__title{
+        font-weight:700;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+    }
+    &__message{
+        color: $dark-grayish-blue;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 50px;
+    }
+}

@@ -1,0 +1,22 @@
+.light{
+    .todo-menu__options {
+        & :hover{
+            color: $very-dark-blue;            
+        }
+    }
+    .todo-menu__clear:hover{
+        color: $very-dark-blue;
+    }
+    input{
+        background-color: $very-light-gray;
+        color: $very-dark-grayish-blue-2;
+    }
+    .AddTodo{
+        &-checkbox{
+            border-color: $very-light-grayish-blue;
+        }
+    }
+    .todo-menu__options{
+        background-color: unset;
+    }
+}

@@ -1,0 +1,43 @@
+.todo-list{
+    font-size: 14px;
+    &__item{
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $very-dark-grayish-blue-2;
+        /* &-text{
+            padding: 14px 0px 14px 0px;            
+        } */
+        &-checkbox{
+            margin: 15px;
+            border-radius: 50%;
+            height: 15px;
+            width: 15px;
+            border: 1px solid $very-dark-grayish-blue-2;
+            &:hover{    
+                border-color: $bright-blue;
+            }
+        }
+        &:hover{
+            cursor: pointer;
+            .cross{
+                visibility: visible;
+            }
+        }         
+    }
+    &-container{
+            background-color: $very-dark-desaturated-blue;
+            box-shadow: 5px 5px 10px #151516d9;
+            border-radius: 4px;
+            &-light{
+                background-color: $very-light-gray;
+                box-shadow: 5px 5px 10px $light-grayish-blue;
+                border-radius: 4px;
+                .todo-list .todo-list__item {
+                    border-bottom: 1px solid $very-light-grayish-blue;
+                }
+                .todo-list__item-checkbox{
+                    border: 1px solid $very-light-grayish-blue;
+                }
+            }
+    }
+}

@@ -1,0 +1,35 @@
+.todo-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $dark-grayish-blue;
+    font-size: 12px;
+    &__options{
+        position: absolute;
+        bottom: -55px;
+        padding: 4% 27%;
+        background-color: #25273c;
+        ul{
+            display: flex;
+        }
+        li{
+            padding-right: 10px;
+        }
+        :hover{
+            color: $very-light-gray;
+            cursor: pointer;
+        }
+        &--selected{
+            color: $bright-blue;
+        }
+    }
+    &__clear{
+        &:hover{
+            color: $very-light-gray;
+            cursor: pointer;
+        }
+    }
+    p{
+        padding: 0 15px;
+    }
+}
