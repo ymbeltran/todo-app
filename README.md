@@ -75,4 +75,4 @@ For future projects I would like to practice writing comments while writing code
 
 ## Acknowledgments
 
-This might sound silly but I want to thank a friend that presented me with this challenge and encourage me to do it. I'm also grateful for Platzi where I've learned a lot.
+This might sound silly but I want to thank my friend that presented me with this challenge and encourage me to do it. I'm also grateful for Platzi where I've learned a lot. Additionally lots of thank yous to the sunbae (선배) who got me out of some troubles I found while coding.

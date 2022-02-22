@@ -10,15 +10,29 @@ const TodoList = () => {
   let toShow=todoListing;
   
   if (showList=='active') {
-    toShow=todoListing.filter(crt =>!crt.completed)
+    toShow=todoListing.filter((crt,index) => {
+      crt.listId = index;
+      return !crt.completed
+    })
   }
   else if (showList=='completed') {
-    toShow=todoListing.filter(crt =>crt.completed)
+    toShow=todoListing.filter((crt,index) => {
+      crt.listId = index;
+      return crt.completed
+    })
   }
   
   // console.log("Show the list: ", toShow);
 
   const reorder = (list, startI, endI) => {
+
+    if (showList=='active' || showList=='completed') {
+      console.log("toShow",toShow)
+      startI = toShow[startI].listId;
+      endI = toShow[endI].listId;
+    }
+
+    console.log("list:",list, startI, endI)
     const result = [...list];
     const [removed] = result.splice(startI,1);
     result.splice(endI,0,removed);
@@ -27,18 +41,18 @@ const TodoList = () => {
 
   return (
     <DragDropContext 
-    
-    onDragEnd={(result)=> {
-      
-      const {source, destination} = result;
-      if (!destination) {
-        return;
-      }
-      if (source.index === destination.index && source.droppableId === destination.droppableId)  {
-        return;
-      }
-      saveTodos(reorder(todoListing, source.index, destination.index));
-      }}>
+      onDragEnd={(result)=> {
+        
+        const {source, destination} = result;
+        if (!destination) {
+          return;
+        }
+        if (source.index === destination.index && source.droppableId === destination.droppableId)  {
+          return;
+        }
+        saveTodos(reorder(todoListing, source.index, destination.index));
+      }}
+    >
 
       <Droppable droppableId='todoList' >
       {(droppableProvided) => (
