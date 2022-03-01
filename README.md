@@ -38,7 +38,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Todo app challenge](https://github.com/ymbeltran/todo-app.git)
+- Solution URL: [Todo app challenge](https://www.frontendmentor.io/solutions/todo-app-made-with-react-and-webpack-using-sass-Zi6Y-Dvgq)
 - Live Site URL: [GitHub Pages](https://ymbeltran.github.io/todo-app/)
 
 ## My process
@@ -51,6 +51,7 @@ Users should be able to:
 - Babel
 - SASS & BEM
 - Mobile-first workflow
+- Progressive Web App
 
 
 ### What I learned
@@ -59,7 +60,7 @@ I learned to work with Webpack. I learned to use React Context (provider, consum
 
 ### Continued development
 
-For future projects I would like to practice writing comments while writing code because this time I forgot to do it.
+For future projects I would like to practice writing comments while writing code because this time I forgot to do it. And I would like to explore the use of React Router for a next project.
 
 ### Useful resources
 

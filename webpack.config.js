@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackPwaManifestPlugin = require('webpack-pwa-manifest');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -51,6 +53,38 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css'
         }),
+        new WebpackPwaManifestPlugin({
+            name: 'TODO List - The easiest way to get things done',
+            shortname: 'TODO List ✅ ',
+            description: 'Get ready to reach your goals in a simple way with TODO List',
+            background_color: '#161722',
+            theme_color: '#b97eee',
+            icons: [
+              {
+                src: path.resolve('src/assets/icon.png'),
+                sizes: [96, 128, 192, 256, 384, 512],
+                purpose: "any maskable"
+              }
+            ]
+          }),
+          new WorkboxWebpackPlugin.GenerateSW({
+            runtimeCaching: [
+              {
+                urlPattern: new RegExp('https://(res.cloudinary.com|images.unsplash.com)'),
+                handler: 'CacheFirst',
+                options: {
+                  cacheName: 'images'
+                }
+              },
+              {
+                urlPattern: new RegExp('http://localhost:3000/todo-app/'),
+                handler: 'NetworkFirst',
+                options: {
+                  cacheName: 'api'
+                }
+              }
+            ]
+          }),
     ],
     devServer:{
         historyApiFallback: true,
