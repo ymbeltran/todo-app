@@ -1,0 +1,49 @@
+{
+  "icons": [
+    {
+      "src": "/todo-app/icon_512x512.e1a99b7615b2ee131a215c686d948e96.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/todo-app/icon_384x384.f4d5bd2f704b80c5b68482f66b2819cc.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/todo-app/icon_256x256.90bb45213c3d3ff59226cafb4932d80c.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/todo-app/icon_192x192.f7bc3224f40d95d9fdc391458547d9aa.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/todo-app/icon_128x128.b2d64d9818c2f693a15fe089c4157170.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/todo-app/icon_96x96.18df3badda6306bf0cd377288e9f93e5.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "name": "TODO List - The easiest way to get things done",
+  "short_name": "TODO List - The easiest way to get things done",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "shortname": "TODO List ✅ ",
+  "description": "Get ready to reach your goals in a simple way with TODO List",
+  "background_color": "#161722",
+  "theme_color": "#b97eee"
+}
